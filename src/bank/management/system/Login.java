@@ -2,8 +2,10 @@ package bank.management.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
 
     JLabel label1, label2, label3;
     JTextField textField2;
@@ -71,6 +73,7 @@ public class Login extends JFrame {
         button1.setOpaque(true);
         button1.setBorderPainted(false);
         button1.setBounds(300,320,100, 30);
+        button1.addActionListener(this);
         add(button1);
 
         button2 = new JButton("CLEAR");
@@ -80,6 +83,7 @@ public class Login extends JFrame {
         button2.setOpaque(true);
         button2.setBorderPainted(false);
         button2.setBounds(430,320,100,30);
+        button2.addActionListener(this);
         add(button2);
 
         button3 = new JButton("SIGN UP");
@@ -89,6 +93,7 @@ public class Login extends JFrame {
         button3.setOpaque(true);
         button3.setBorderPainted(false);
         button3.setBounds(300,370,230, 30);
+        button3.addActionListener(this);
         add(button3);
 
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
@@ -102,6 +107,23 @@ public class Login extends JFrame {
         setSize(850,480);
         setLocation(450,200);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try{
+            if(e.getSource() == button1){
+
+            } else if (e.getSource() == button2) {
+                textField2.setText("");
+                passwordField.setText("");
+            } else if (e.getSource() == button3) {
+
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
