@@ -4,9 +4,11 @@ import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class Signup extends JFrame {
+public class Signup extends JFrame implements ActionListener {
 
     JRadioButton r1, r2, m1, m2, m3;
     JButton next;
@@ -179,6 +181,7 @@ public class Signup extends JFrame {
         next.setOpaque(true);
         next.setBorderPainted(false);
         next.setBounds(620,710,80,30);
+        next.addActionListener(this);
         add(next);
 
         getContentPane().setBackground(new Color(222,255,228));
@@ -186,6 +189,11 @@ public class Signup extends JFrame {
         setSize(850,800);
         setLocation(360,40);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 
     public static void main(String[] args) {
