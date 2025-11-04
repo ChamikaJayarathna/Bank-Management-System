@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class Signup extends JFrame implements ActionListener {
+public class SignupPageOne extends JFrame implements ActionListener {
 
     JRadioButton r1, r2, m1, m2, m3;
     JButton next;
@@ -20,7 +20,7 @@ public class Signup extends JFrame implements ActionListener {
     long first4 = (ran.nextLong() % 9000L) + 1000L;
     String first = " " + Math.abs(first4);
 
-    Signup(){
+    SignupPageOne(){
         super("APPLICATION FORM");
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
@@ -197,6 +197,6 @@ public class Signup extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Signup();
+        new SignupPageOne();
     }
 }
