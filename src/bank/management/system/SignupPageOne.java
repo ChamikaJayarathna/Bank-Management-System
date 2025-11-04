@@ -194,6 +194,42 @@ public class SignupPageOne extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        String formNo = first;
+        String name = textName.getText();
+        String fName = textFname.getText();
+        String gender = null;
+        if (r1.isSelected()){
+            gender = "Male";
+        } else if (r2.isSelected()) {
+            gender = "Female";
+        }
+        String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
+        String email = textEmail.getText();
+        String marital = null;
+        if (m1.isSelected()){
+            marital = "Married";
+        } else if (m2.isSelected()) {
+            marital = "Unmarried";
+        } else if (m3.isSelected()) {
+            marital = "Other";
+        }
+        String address = textAdd.getText();
+        String city = textCity.getText();
+        String pinCode = textPin.getText();
+        String state = textState.getText();
+
+        try {
+            if(textName.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"Fill all the fields");
+            } else {
+                DBConnection connection = new DBConnection();
+                String query = "insert into signup values('"+formNo+"', '"+name+"', '"+fName+"', '"+gender+"', '"+dob+"', '"+email+"', '"+marital+"', '"+address+"', '"+city+"', '"+pinCode+"', '"+state+"')";
+                connection.statement.executeUpdate(query);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     public static void main(String[] args) {
