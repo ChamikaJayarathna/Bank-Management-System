@@ -225,7 +225,7 @@ public class SignupPageOne extends JFrame implements ActionListener {
                 DBConnection connection = new DBConnection();
                 String query = "insert into signup values('"+formNo+"', '"+name+"', '"+fName+"', '"+gender+"', '"+dob+"', '"+email+"', '"+marital+"', '"+address+"', '"+city+"', '"+pinCode+"', '"+state+"')";
                 connection.statement.executeUpdate(query);
-                new SignupPageTwo();
+                new SignupPageTwo(first);
                 setVisible(false);
             }
         } catch (Exception ex) {
