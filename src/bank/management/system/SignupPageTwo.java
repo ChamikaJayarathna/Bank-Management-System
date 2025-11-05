@@ -2,8 +2,10 @@ package bank.management.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SignupPageTwo extends JFrame {
+public class SignupPageTwo extends JFrame implements ActionListener {
 
     JComboBox comboBox1, comboBox2, comboBox3, comboBox4, comboBox5;
     JTextField textPan,textAadhaar;
@@ -173,6 +175,7 @@ public class SignupPageTwo extends JFrame {
         next.setOpaque(true);
         next.setBorderPainted(false);
         next.setBounds(620,710,80,30);
+        next.addActionListener(this);
         add(next);
 
         getContentPane().setBackground(new Color(222,255,228));
@@ -180,6 +183,11 @@ public class SignupPageTwo extends JFrame {
         setSize(850,800);
         setLocation(360,40);
         setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 
     public static void main(String[] args) {
