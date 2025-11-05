@@ -122,14 +122,18 @@ public class SignupPageTwo extends JFrame {
         r1 = new JRadioButton("Yes");
         r1.setFont(new Font("Raleway",Font.BOLD,14));
         r1.setBackground(new Color(255, 255, 255));
-        r1.setBounds(300,540,400,30);
+        r1.setBounds(300,540,100,30);
         add(r1);
 
         r2 = new JRadioButton("No");
         r2.setFont(new Font("Raleway",Font.BOLD,14));
         r2.setBackground(new Color(255, 255, 255));
-        r2.setBounds(450,540,400,30);
+        r2.setBounds(450,540,100,30);
         add(r2);
+
+        ButtonGroup buttonGroup1 = new ButtonGroup();
+        buttonGroup1.add(r1);
+        buttonGroup1.add(r2);
 
         JLabel l11 = new JLabel("Existing Account :");
         l11.setFont(new Font("Ralway",Font.BOLD,20));
@@ -139,15 +143,19 @@ public class SignupPageTwo extends JFrame {
         e1 = new JRadioButton("Yes");
         e1.setFont(new Font("Raleway",Font.BOLD,14));
         e1.setBackground(new Color(255, 255, 255));
-        e1.setBounds(300,590,400,30);
+        e1.setBounds(300,590,100,30);
         add(e1);
 
         e2 = new JRadioButton("No");
         e2.setFont(new Font("Raleway",Font.BOLD,14));
         e2.setBackground(new Color(255, 255, 255));
-        e2.setBounds(450,590,400,30);
+        e2.setBounds(450,590,100,30);
         add(e2);
-        
+
+        ButtonGroup buttonGroup2 = new ButtonGroup();
+        buttonGroup2.add(e1);
+        buttonGroup2.add(e2);
+
         JLabel l12 = new JLabel("Form No :");
         l12.setFont(new Font("Ralway",Font.BOLD,20));
         l12.setBounds(650,30,100,30);
