@@ -10,8 +10,9 @@ public class SignupPageThree extends JFrame implements ActionListener {
     JRadioButton r1, r2, r3, r4;
     JCheckBox c1, c2, c3, c4, c5, c6;
     JButton submit, cancel;
+    String formNo;
 
-    public SignupPageThree() {
+    public SignupPageThree(String formNo) {
         super("APPLICATION FORM");
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
@@ -20,6 +21,8 @@ public class SignupPageThree extends JFrame implements ActionListener {
         JLabel image1 = new JLabel(i3);
         image1.setBounds(25,10,100,100);
         add(image1);
+
+        this.formNo = formNo;
 
         JLabel l1 = new JLabel("Page 3");
         l1.setFont(new Font("Ralway",Font.BOLD,22));

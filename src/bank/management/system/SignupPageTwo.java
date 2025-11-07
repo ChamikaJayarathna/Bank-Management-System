@@ -14,7 +14,6 @@ public class SignupPageTwo extends JFrame implements ActionListener {
     String formNo;
 
     public SignupPageTwo(String formNo){
-
         super("APPLICATION FORM");
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
@@ -187,6 +186,43 @@ public class SignupPageTwo extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        String religion = (String) comboBox1.getSelectedItem();
+        String category = (String) comboBox2.getSelectedItem();
+        String income = (String) comboBox3.getSelectedItem();
+        String education = (String) comboBox4.getSelectedItem();
+        String occupation = (String) comboBox5.getSelectedItem();
+
+        String panNumber = textPan.getText();
+        String aadhaarNumber = textAadhaar.getText();
+
+        String seniorCitizen  = "";
+        if(r1.isSelected()){
+            seniorCitizen = "Yes";
+        } else if (r2.isSelected()) {
+            seniorCitizen = "No";
+        }
+
+        String existingAccount = "";
+        if(e1.isSelected()){
+            existingAccount = "Yes";
+        } else if (e2.isSelected()) {
+            existingAccount = "No";
+        }
+
+        try {
+            if (textPan.getText().equals("") || textAadhaar.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"Fill all the fields");
+            } else {
+                DBConnection connection = new DBConnection();
+                String query = "insert into signup_page_two values('"+religion+"', '"+category+"', '"+income+"', '"+education+"', '"+occupation+"', '"+panNumber+"', '"+aadhaarNumber+"', '"+seniorCitizen+"', '"+existingAccount+"')";
+                connection.statement.executeUpdate(query);
+                new SignupPageThree(formNo);
+                setVisible(false);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
     }
 
