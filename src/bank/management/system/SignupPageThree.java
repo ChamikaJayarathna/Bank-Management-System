@@ -2,8 +2,10 @@ package bank.management.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SignupPageThree extends JFrame {
+public class SignupPageThree extends JFrame implements ActionListener {
 
     JRadioButton r1, r2, r3, r4;
     JCheckBox c1, c2, c3, c4, c5, c6;
@@ -163,6 +165,7 @@ public class SignupPageThree extends JFrame {
         submit.setOpaque(true);
         submit.setBorderPainted(false);
         submit.setBounds(250,780,100,30);
+        submit.addActionListener(this);
         add(submit);
 
         cancel = new JButton("Cancel");
@@ -172,6 +175,7 @@ public class SignupPageThree extends JFrame {
         cancel.setOpaque(true);
         cancel.setBorderPainted(false);
         cancel.setBounds(420,780,100,30);
+        cancel.addActionListener(this);
         add(cancel);
 
         getContentPane().setBackground(new Color(222,255,228));
@@ -179,6 +183,11 @@ public class SignupPageThree extends JFrame {
         setSize(850,880);
         setLocation(360,40);
         setVisible(true);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
 
