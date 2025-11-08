@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class SignupPageThree extends JFrame implements ActionListener {
 
@@ -191,7 +192,58 @@ public class SignupPageThree extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String accountType = null;
+        if(r1.isSelected()){
+            accountType = "Saving Account";
+        } else if (r2.isSelected()) {
+            accountType = "Fixed Deposit Account";
+        } else if (r3.isSelected()) {
+            accountType = "Current Account";
+        } else if (r4.isSelected()) {
+            accountType = "Recurring Deposit Account";
+        }
 
+        Random random = new Random();
+        long first7 = (random.nextLong() % 90000000L) + 1409963000000000L;
+        String cardNo = "" + Math.abs(first7);
+
+        long first3 = (random.nextLong() % 9000L) + 1000L;
+        String pin = "" + Math.abs(first3);
+
+        String facility = "";
+        if (c1.isSelected()) {
+            facility = facility+"ATM CARD";
+        } else if (c2.isSelected()) {
+            facility = facility+"Internet Banking";
+        } else if (c3.isSelected()) {
+            facility = facility+"Mobile Banking";
+        } else if (c4.isSelected()) {
+            facility = facility+"EMAIL Alerts";
+        } else if (c5.isSelected()) {
+            facility = facility+"Cheque Book";
+        } else if (c6.isSelected()) {
+            facility = facility+"E-Statement";
+        }
+
+        try{
+            if (e.getSource() == submit) {
+                if (accountType.equals("")) {
+                    JOptionPane.showMessageDialog(null,"Fill all the fields");
+                } else {
+                    DBConnection connection = new DBConnection();
+                    String queryOne = "insert into signup_page_three values('"+formNo+"', '"+accountType+"', '"+cardNo+"', '"+pin+"', '"+facility+"')";
+                    String queryTwo = "insert into login values('"+formNo+"', '"+cardNo+"', '"+pin+"')";
+                    connection.statement.executeUpdate(queryOne);
+                    connection.statement.executeUpdate(queryTwo);
+                    JOptionPane.showMessageDialog(null,"Card Number : "+cardNo+"\n Pin : "+pin );
+                    setVisible(false);
+                }
+            } else if (e.getSource()== cancel) {
+                System.exit(0);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
