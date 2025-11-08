@@ -195,6 +195,6 @@ public class SignupPageThree extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new SignupPageThree();
+        new SignupPageThree("");
     }
 }

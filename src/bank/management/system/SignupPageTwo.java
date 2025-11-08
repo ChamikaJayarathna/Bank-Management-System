@@ -215,7 +215,7 @@ public class SignupPageTwo extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Fill all the fields");
             } else {
                 DBConnection connection = new DBConnection();
-                String query = "insert into signup_page_two values('"+religion+"', '"+category+"', '"+income+"', '"+education+"', '"+occupation+"', '"+panNumber+"', '"+aadhaarNumber+"', '"+seniorCitizen+"', '"+existingAccount+"')";
+                String query = "insert into signup_page_two values('"+formNo+"', '"+religion+"', '"+category+"', '"+income+"', '"+education+"', '"+occupation+"', '"+panNumber+"', '"+aadhaarNumber+"', '"+seniorCitizen+"', '"+existingAccount+"')";
                 connection.statement.executeUpdate(query);
                 new SignupPageThree(formNo);
                 setVisible(false);
